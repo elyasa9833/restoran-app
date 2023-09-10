@@ -21,3 +21,7 @@ Route::get('/', function () {
 
 // Route::get('/category/create', [CategoryController::class, 'create']);
 Route::resource('category', 'App\Http\Controllers\CategoryController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
