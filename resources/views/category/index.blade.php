@@ -31,7 +31,11 @@
                             <td>{{ $category->name }}</td>
                             <td>
                                 <a href="{{ route('category.edit', [$category->id]) }}" class="btn btn-outline-warning">Edit</a>
-                                <a href="#" class="btn btn-outline-danger">Delete</a>
+                                <form style="display: inline-block" action="{{ route('category.destroy', [$category->id]) }}" method="post">
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                    <button class="btn btn-outline-danger">Delete</button>
+                                </form>
                             </td>
                           </tr>
                         @endforeach
@@ -42,7 +46,7 @@
                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
         </div>
     </div>
