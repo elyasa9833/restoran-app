@@ -50,15 +50,19 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit', compact('category'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+        $category->name = $request->get('name');
+        $category->save();
+        return redirect()->route('category.index')->with('message', 'Kategori berhasil diupdate');
     }
 
     /**
