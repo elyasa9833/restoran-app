@@ -37,6 +37,24 @@ class FoodController extends Controller
             'category' => 'required',
             'image' => 'required|mimes:png,jpeg,jpg'
         ]);
+
+        // menyimpan file gambar yang diupload
+        $image = $request->file('image');
+        $name = time().".{$image-> getClientOriginalExtension()}";
+        $destinationPath = public_path('/image');
+        $image->move($destinationPath, $name);
+
+        // memasukkan semua data kedalam database
+        Food::create([
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'price' => $request->get('price'),
+            'category_id' => $request->get('category'),
+            'image' => $name
+        ]);
+
+        // redirect ke halaman selanjutnya
+        return redirect()->back()->with('message', 'Food berhasil ditambahkan');
     }
 
     /**
