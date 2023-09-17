@@ -36,7 +36,7 @@
                             <td>{{ $food->price }}</td>
                             <td>{{ $food->category_id }}</td>
                             <td>
-                                <a href="{{ route('food.edit', [$food->id]) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('food.edit', [$food->id]) }}" class="btn btn-outline-warning">Edit</a>
                                 <form style="display: inline-block" action="{{ route('food.destroy', [$food->id]) }}" method="post">
                                     @csrf
                                     {{ method_field('DELETE') }}
