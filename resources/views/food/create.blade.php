@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input type="text" name="description" class="form-control @error('description') is-invalid @enderror">
+                        <textarea name="description" cols="10" rows="4" class="form-control @error('description') is-invalid @enderror"></textarea>
                         
                         @error('description')
                         <span class="invalid-feedback" role="alert">
