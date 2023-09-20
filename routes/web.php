@@ -21,10 +21,10 @@ Route::get('/', function () {
 });
 
 // Route::get('/category/create', [CategoryController::class, 'create']);
-Route::resource('category', 'App\Http\Controllers\CategoryController');
+Route::resource('category', 'App\Http\Controllers\CategoryController')->middleware('auth');
 
-Route::resource('food', 'App\Http\Controllers\FoodController');
+Route::resource('food', 'App\Http\Controllers\FoodController')->middleware('auth');
 
-Auth::routes();
+Auth::routes(['register=>false']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
