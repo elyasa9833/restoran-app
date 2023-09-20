@@ -51,6 +51,8 @@
                         @endif
                         </tbody>
                     </table>
+                    {{ $foods->links() }}
+
                 </div>
 
             </div>
